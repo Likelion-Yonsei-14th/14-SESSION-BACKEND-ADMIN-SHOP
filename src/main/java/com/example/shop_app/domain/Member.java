@@ -1,5 +1,6 @@
 package com.example.shop_app.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,11 +20,22 @@ public class Member extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
     private String nickname;
 
-    public static Member create(String nickname) {
+    private String role;
+
+    public static Member create(String email, String password, String nickname) {
         Member member = new Member();
+        member.email = email;
+        member.password = password;
         member.nickname = nickname;
+        member.role = "USER";
         return member;
     }
 }

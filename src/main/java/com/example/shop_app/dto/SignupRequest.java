@@ -5,9 +5,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ProductCreateRequest {
+public class SignupRequest {
 
-    private String name;
-    private String description;
-    private Integer price;
+    private String email;
+    private String password;
+    private String nickname;
 }
