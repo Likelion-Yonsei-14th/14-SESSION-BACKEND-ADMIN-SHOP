@@ -22,7 +22,7 @@ public class ProductService {
     public ProductResponse createProduct(Long memberId, ProductCreateRequest request) {
         validateProduct(request.getName(), request.getDescription(), request.getPrice());
         Member member = memberService.findMemberById(memberId);
-        Product product = Product.create(member, request.getName(), request.getDescription(), request.getPrice());
+        Product product = Product.create(member, request.getName(), request.getDescription(), request.getPrice(), request.getStockQuantity());
         return ProductResponse.from(productRepository.save(product));
     }
 

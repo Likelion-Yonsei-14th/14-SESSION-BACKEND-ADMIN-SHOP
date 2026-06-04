@@ -32,13 +32,24 @@ public class Product extends BaseTimeEntity {
 
     private Integer price;
 
-    public static Product create(Member member, String name, String description, Integer price) {
+    private Integer stockQuantity;
+
+    public static Product create(Member member, String name, String description, Integer price, Integer stockQuantity) {
         Product product = new Product();
         product.member = member;
         product.name = name;
         product.description = description;
         product.price = price;
+        product.stockQuantity = stockQuantity;
         return product;
+    }
+
+    public void decreaseStock(int quantity) {
+        this.stockQuantity -= quantity;
+    }
+
+    public void increaseStock(int quantity) {
+        this.stockQuantity += quantity;
     }
 
     public void updateProduct(String name, String description, Integer price) {

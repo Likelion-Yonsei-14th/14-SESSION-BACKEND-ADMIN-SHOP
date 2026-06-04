@@ -21,6 +21,8 @@ public class ProductResponse {
 
     private Integer price;
 
+    private Integer stockQuantity;
+
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
@@ -33,6 +35,7 @@ public class ProductResponse {
                 .name(product.getName())
                 .description(product.getDescription())
                 .price(product.getPrice())
+                .stockQuantity(product.getStockQuantity())
                 .createdAt(product.getCreatedAt())
                 .updatedAt(product.getUpdatedAt())
                 .build();
